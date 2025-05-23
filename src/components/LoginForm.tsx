@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import PasswordResetPopup from "./PasswordResetPopup";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -62,9 +63,11 @@ const LoginForm = () => {
               로그인 상태 유지
             </label>
           </div>
-          <Link to="#" className="text-sm text-sky-600 hover:text-sky-500">
-            비밀번호를 잊으셨나요?
-          </Link>
+          <PasswordResetPopup>
+            <button type="button" className="text-sm text-sky-600 hover:text-sky-500">
+              비밀번호를 잊으셨나요?
+            </button>
+          </PasswordResetPopup>
         </div>
 
         <Button 
