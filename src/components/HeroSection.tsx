@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import ChatbotMockup from "./ChatbotMockup";
 
 const HeroSection = () => {
@@ -30,9 +31,11 @@ const HeroSection = () => {
                     단순 FAQ 응대가 아닌, <br />
                     여러분들의 대학생활을 책임지는 똑똑한 상담사!
                   </p>
-                  <Button className="px-8 py-3 mt-8 whitespace-nowrap bg-blue-100 text-neutral-800 hover:bg-blue-200 transition-colors">
-                    시작하기
-                  </Button>
+                  <Link to="/login">
+                    <Button className="px-8 py-3 mt-8 whitespace-nowrap bg-blue-100 text-neutral-800 hover:bg-blue-200 transition-colors">
+                      시작하기
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

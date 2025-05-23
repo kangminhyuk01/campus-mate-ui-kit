@@ -11,7 +11,7 @@ const Header = () => {
           <h1 className="text-2xl tracking-tighter leading-none text-sky-600 font-semibold">
             Campus Mate
           </h1>
-          <Link to="#" className="hover:text-sky-600 transition-colors">Home</Link>
+          <Link to="/" className="hover:text-sky-600 transition-colors">Home</Link>
           <Link to="#" className="hover:text-sky-600 transition-colors">Features</Link>
         </nav>
         <div className="flex gap-6 items-center">
@@ -19,7 +19,7 @@ const Header = () => {
             Download app
           </Link>
           <div className="hidden md:block object-contain shrink-0 self-stretch my-auto w-px h-6 bg-gray-300 rounded-sm" />
-          <Link to="#" className="self-stretch my-auto hover:text-sky-600 transition-colors">
+          <Link to="/login" className="self-stretch my-auto hover:text-sky-600 transition-colors">
             Log in
           </Link>
           <Button className="self-stretch px-4 py-2 bg-sky-500 text-white hover:bg-sky-600 transition-colors">
