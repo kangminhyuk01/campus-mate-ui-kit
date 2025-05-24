@@ -1,17 +1,20 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface QuickActionButtonProps {
   text: string;
   imageUrl: string;
   className?: string;
+  onClick?: () => void;
+  isToggled?: boolean;
 }
 
-const QuickActionButton = ({ text, imageUrl, className = "" }: QuickActionButtonProps) => {
+const QuickActionButton = ({ text, imageUrl, className = "", onClick, isToggled = false }: QuickActionButtonProps) => {
   return (
     <button
-      className={`flex gap-3 items-center px-4 py-3 text-sm text-gray-700 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors w-full ${className}`}
+      className={`flex gap-3 items-center px-4 py-3 text-sm text-gray-700 ${isToggled ? 'bg-gray-200' : 'bg-gray-50'} hover:bg-gray-100 rounded-lg transition-colors w-full ${className}`}
+      onClick={onClick}
     >
       <img
         src={imageUrl}
@@ -19,16 +22,37 @@ const QuickActionButton = ({ text, imageUrl, className = "" }: QuickActionButton
         alt="Action icon"
       />
       <span>{text}</span>
+      {text === "학사안내" && (
+        <svg className={`ml-auto w-4 h-4 transition-transform ${isToggled ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      )}
     </button>
   );
 };
 
 const ChatArea = () => {
   const navigate = useNavigate();
+  const [isAcademicToggled, setIsAcademicToggled] = useState(false);
 
   const handleModeSwitch = () => {
     navigate("/assistchat");
   };
+
+  const handleAcademicToggle = () => {
+    setIsAcademicToggled(!isAcademicToggled);
+  };
+
+  const academicQuestions = [
+    "1전공 졸업요건이 궁금합니다",
+    "휴학하려면 맞찾시 들어야하는요?",
+    "계절학기는 언제 신청하나요?",
+    "신입생은 언제 휴학신청이 가능한가요?",
+    "전부 졸업학년입니다",
+    "예비군은 어떻게 신청하나요?",
+    "",
+    "휴학하고 싶은데 등록금 환불은 어떻게 되나요?"
+  ];
 
   return (
     <div className="space-y-4">
@@ -63,7 +87,23 @@ const ChatArea = () => {
         <QuickActionButton
           text="학사안내"
           imageUrl="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/38a66917a30b171a511e111cfddea678fb29a7ac?placeholderIfAbsent=true"
+          onClick={handleAcademicToggle}
+          isToggled={isAcademicToggled}
         />
+        
+        {isAcademicToggled && (
+          <div className="ml-4 space-y-2 border border-gray-200 rounded-lg p-3 bg-white">
+            {academicQuestions.filter(q => q.trim() !== "").map((question, index) => (
+              <button
+                key={index}
+                className="block w-full text-left text-sm text-gray-600 hover:text-gray-800 py-1 hover:bg-gray-50 rounded px-2 transition-colors"
+              >
+                {question}
+              </button>
+            ))}
+          </div>
+        )}
+        
         <QuickActionButton
           text="강의안내"
           imageUrl="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/372dab1a18cf0ad51e08e6d1debb7b01a6802e58?placeholderIfAbsent=true"
