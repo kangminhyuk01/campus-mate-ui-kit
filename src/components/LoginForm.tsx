@@ -1,17 +1,25 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PasswordResetPopup from "./PasswordResetPopup";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Login attempt:", { email, password });
+    
+    // Check if both email and password are not empty
+    if (email.trim() !== "" && password.trim() !== "") {
+      console.log("Login attempt:", { email, password });
+      // Redirect to Home2 page
+      navigate("/home2");
+    } else {
+      console.log("Login failed: Email or password is empty");
+    }
   };
 
   return (
