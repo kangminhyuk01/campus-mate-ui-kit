@@ -10,14 +10,14 @@ interface AssistChatQuickActionButtonProps {
 const AssistChatQuickActionButton = ({ text, iconSrc, className = "" }: AssistChatQuickActionButtonProps) => {
   return (
     <button
-      className={`flex gap-5 justify-between items-center px-5 py-3 w-full max-w-sm text-sm text-black bg-orange-100 rounded-xl hover:bg-orange-200 transition-colors ${className}`}
+      className={`flex gap-3 items-center px-4 py-3 text-sm text-gray-700 bg-orange-100 hover:bg-orange-200 rounded-lg transition-colors w-full ${className}`}
     >
-      <span>{text}</span>
       <img
         src={iconSrc}
-        alt="Icon"
-        className="w-5 h-5"
+        className="object-contain w-5 h-5"
+        alt="Action icon"
       />
+      <span>{text}</span>
     </button>
   );
 };

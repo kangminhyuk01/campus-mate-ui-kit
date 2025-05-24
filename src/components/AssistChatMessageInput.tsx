@@ -3,7 +3,7 @@ import React from "react";
 
 const AssistChatMessageInput = () => {
   return (
-    <div className="w-full mb-8">
+    <div className="max-w-4xl mx-auto">
       <div className="flex items-center gap-3 bg-gray-50 rounded-full px-4 py-3 border border-gray-200">
         <img
           src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/94713650efb2b00fec2a444e763b1724eeeddd85?placeholderIfAbsent=true"
