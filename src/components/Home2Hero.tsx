@@ -1,8 +1,11 @@
-
-import React from "react";
+import React, { useState } from "react";
 import PhoneMockup from "./PhoneMockup";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import ModeSelection from "./ModeSelection";
 
 const Home2Hero = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   return (
     <section className="flex flex-col items-center px-20 w-full bg-white max-md:px-5 max-md:max-w-full">
       <div className="flex z-10 flex-col mb-0 ml-3 w-full max-w-[1159px] max-md:mb-2.5 max-md:max-w-full">
@@ -29,9 +32,16 @@ const Home2Hero = () => {
                     단순 FAQ 응대가 아닌, <br />
                     여러분들의 대학생활을 책임지는 똑똑한 상담사!
                   </p>
-                  <button className="px-8 py-3 mt-8 whitespace-nowrap bg-blue-100 text-neutral-800 hover:bg-blue-200 transition-colors max-md:px-5">
-                    시작하기
-                  </button>
+                  <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                    <DialogTrigger asChild>
+                      <button className="px-8 py-3 mt-8 whitespace-nowrap bg-blue-100 text-neutral-800 hover:bg-blue-200 transition-colors max-md:px-5">
+                        시작하기
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-none w-auto">
+                      <ModeSelection onClose={() => setIsDialogOpen(false)} />
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </div>
             </div>
