@@ -1,5 +1,6 @@
 
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface QuickActionButtonProps {
   text: string;
@@ -23,6 +24,12 @@ const QuickActionButton = ({ text, imageUrl, className = "" }: QuickActionButton
 };
 
 const ChatArea = () => {
+  const navigate = useNavigate();
+
+  const handleModeSwitch = () => {
+    navigate("/assistchat");
+  };
+
   return (
     <div className="space-y-4">
       <div className="flex justify-end mb-6">
@@ -32,7 +39,10 @@ const ChatArea = () => {
             className="w-8 h-8 rounded-full"
             alt="User avatar"
           />
-          <button className="text-sky-500 font-medium hover:text-sky-600 transition-colors">
+          <button 
+            onClick={handleModeSwitch}
+            className="text-sky-500 font-medium hover:text-sky-600 transition-colors"
+          >
             존댓말모드하기
           </button>
         </div>

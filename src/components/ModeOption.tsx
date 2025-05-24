@@ -13,6 +13,8 @@ const ModeOption = ({ imageUrl, label }: ModeOptionProps) => {
   const handleClick = () => {
     if (label === "반말모드") {
       navigate("/friendlychat");
+    } else if (label === "존댓말모드") {
+      navigate("/assistchat");
     }
     // Add logic for other modes here if needed
   };

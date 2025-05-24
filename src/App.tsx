@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Home2 from "./pages/Home2";
 import FriendlyChat from "./pages/FriendlyChat";
+import AssistChat from "./pages/AssistChat";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/signup" element={<SignUp />} />
           <Route path="/home2" element={<Home2 />} />
           <Route path="/friendlychat" element={<FriendlyChat />} />
+          <Route path="/assistchat" element={<AssistChat />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
