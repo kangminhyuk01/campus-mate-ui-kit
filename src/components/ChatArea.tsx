@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +13,7 @@ interface QuickActionButtonProps {
 const QuickActionButton = ({ text, imageUrl, className = "", onClick, isToggled = false }: QuickActionButtonProps) => {
   return (
     <button
-      className={`flex gap-3 items-center px-4 py-3 text-sm text-gray-700 ${isToggled ? 'bg-gray-200' : 'bg-gray-50'} hover:bg-gray-100 rounded-lg transition-colors w-full ${className}`}
+      className={`flex gap-3 items-center px-4 py-3 text-sm text-gray-700 ${isToggled ? 'bg-sky-200' : 'bg-sky-100'} hover:bg-sky-200 rounded-lg transition-colors w-full ${className}`}
       onClick={onClick}
     >
       <img
