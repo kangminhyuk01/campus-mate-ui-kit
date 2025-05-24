@@ -8,25 +8,27 @@ import FriendlyChatFooter from "./FriendlyChatFooter";
 
 const CampusMate = () => {
   return (
-    <main className="overflow-hidden pt-14 pr-20 pb-32 pl-2.5 bg-white max-md:pr-5 max-md:pb-24">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <FriendlyChatHeader />
-      <section className="flex flex-wrap gap-10 mt-64 w-full max-w-[1101px] max-md:mt-10 max-md:max-w-full">
+      
+      <div className="flex flex-1 max-w-7xl mx-auto w-full px-4 py-6">
         <SidePanel />
-        <article className="grow shrink-0 px-20 bg-white basis-0 rounded-[30px] w-fit max-md:px-5 max-md:max-w-full">
-          <div className="flex flex-col items-start pb-4 bg-white rounded-2xl max-md:max-w-full">
-            <div className="flex flex-col mr-0 w-full max-md:max-w-full">
-              <div className="flex flex-col items-start self-center max-w-full w-[645px]">
-                <ChatArea />
-              </div>
-              <div className="flex flex-col items-start pr-20 pb-8 pl-2.5 mt-9 w-full bg-white max-md:pr-5 max-md:max-w-full">
-                <MessageInput />
-                <FriendlyChatFooter />
-              </div>
+        
+        <div className="flex-1 ml-6 bg-white rounded-lg shadow-sm">
+          <div className="flex flex-col h-full">
+            <div className="flex-1 p-6">
+              <ChatArea />
+            </div>
+            
+            <div className="border-t border-gray-200 p-4">
+              <MessageInput />
             </div>
           </div>
-        </article>
-      </section>
-    </main>
+        </div>
+      </div>
+      
+      <FriendlyChatFooter />
+    </div>
   );
 };
 
