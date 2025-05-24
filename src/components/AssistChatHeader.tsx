@@ -14,7 +14,7 @@ const AssistChatHeader = () => {
   };
 
   return (
-    <header className="flex flex-col justify-center items-center px-20 py-7 w-full text-base font-medium leading-none bg-white max-w-[1344px] max-md:px-5 max-md:max-w-full">
+    <header className="flex flex-col justify-center items-center px-20 py-7 w-full text-base font-medium leading-none bg-white max-md:px-5 max-md:max-w-full">
       <div className="overflow-hidden px-0.5 max-w-full rounded-2xl bg-cyan-700 bg-opacity-20 shadow-[0px_4px_24px_rgba(0,0,0,0.16)] w-[886px]">
         <nav className="flex flex-wrap gap-5 justify-between py-4 pr-3.5 pl-8 w-full bg-orange-400 bg-blend-normal max-md:pl-5 max-md:max-w-full">
           <div className="flex gap-10 my-auto text-neutral-800">
