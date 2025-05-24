@@ -81,7 +81,7 @@ const LoginForm = () => {
       <div className="mt-6 text-center">
         <p className="text-sm text-gray-600">
           계정이 없으신가요?{" "}
-          <Link to="#" className="text-sky-600 hover:text-sky-500 font-medium">
+          <Link to="/signup" className="text-sky-600 hover:text-sky-500 font-medium">
             회원가입
           </Link>
         </p>
