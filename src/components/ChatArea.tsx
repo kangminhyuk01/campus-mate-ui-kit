@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +21,7 @@ const QuickActionButton = ({ text, imageUrl, className = "", onClick, isToggled 
         alt="Action icon"
       />
       <span>{text}</span>
-      {text === "학사안내" && (
+      {(text === "학사안내" || text === "강의안내" || text === "국제교류" || text === "교내문의") && (
         <svg className={`ml-auto w-4 h-4 transition-transform ${isToggled ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
@@ -34,6 +33,9 @@ const QuickActionButton = ({ text, imageUrl, className = "", onClick, isToggled 
 const ChatArea = () => {
   const navigate = useNavigate();
   const [isAcademicToggled, setIsAcademicToggled] = useState(false);
+  const [isLectureToggled, setIsLectureToggled] = useState(false);
+  const [isInternationalToggled, setIsInternationalToggled] = useState(false);
+  const [isCampusToggled, setIsCampusToggled] = useState(false);
 
   const handleModeSwitch = () => {
     navigate("/assistchat");
@@ -43,6 +45,18 @@ const ChatArea = () => {
     setIsAcademicToggled(!isAcademicToggled);
   };
 
+  const handleLectureToggle = () => {
+    setIsLectureToggled(!isLectureToggled);
+  };
+
+  const handleInternationalToggle = () => {
+    setIsInternationalToggled(!isInternationalToggled);
+  };
+
+  const handleCampusToggle = () => {
+    setIsCampusToggled(!isCampusToggled);
+  };
+
   const academicQuestions = [
     "1전공 졸업요건이 궁금합니다",
     "휴학하려면 맞찾시 들어야하는요?",
@@ -50,8 +64,37 @@ const ChatArea = () => {
     "신입생은 언제 휴학신청이 가능한가요?",
     "전부 졸업학년입니다",
     "예비군은 어떻게 신청하나요?",
-    "",
     "휴학하고 싶은데 등록금 환불은 어떻게 되나요?"
+  ];
+
+  const lectureQuestions = [
+    "수강신청은 언제 하나요?",
+    "강의실 변경사항은 어디서 확인하나요?",
+    "출석 기준이 어떻게 되나요?",
+    "시험 일정을 알고 싶어요",
+    "교수님 연락처가 궁금해요",
+    "강의평가는 언제 하나요?",
+    "재수강 신청 방법이 궁금해요"
+  ];
+
+  const internationalQuestions = [
+    "교환학생 프로그램 신청 방법은?",
+    "어학연수 프로그램이 있나요?",
+    "외국인 학생 지원 서비스는?",
+    "해외 인턴십 기회가 있나요?",
+    "외국어 능력 시험 지원은?",
+    "국제 학술대회 참가 방법은?",
+    "글로벌 프로그램 장학금은?"
+  ];
+
+  const campusQuestions = [
+    "도서관 이용시간이 궁금해요",
+    "학생식당 메뉴와 가격은?",
+    "주차장 이용 방법을 알고 싶어요",
+    "동아리 활동은 어떻게 시작하나요?",
+    "학생회관 시설 예약 방법은?",
+    "체육관 이용 시간이 궁금해요",
+    "분실물 센터는 어디에 있나요?"
   ];
 
   return (
@@ -93,7 +136,7 @@ const ChatArea = () => {
         
         {isAcademicToggled && (
           <div className="ml-4 space-y-2 border border-gray-200 rounded-lg p-3 bg-white">
-            {academicQuestions.filter(q => q.trim() !== "").map((question, index) => (
+            {academicQuestions.map((question, index) => (
               <button
                 key={index}
                 className="block w-full text-left text-sm text-gray-600 hover:text-gray-800 py-1 hover:bg-gray-50 rounded px-2 transition-colors"
@@ -107,15 +150,62 @@ const ChatArea = () => {
         <QuickActionButton
           text="강의안내"
           imageUrl="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/372dab1a18cf0ad51e08e6d1debb7b01a6802e58?placeholderIfAbsent=true"
+          onClick={handleLectureToggle}
+          isToggled={isLectureToggled}
         />
+        
+        {isLectureToggled && (
+          <div className="ml-4 space-y-2 border border-gray-200 rounded-lg p-3 bg-white">
+            {lectureQuestions.map((question, index) => (
+              <button
+                key={index}
+                className="block w-full text-left text-sm text-gray-600 hover:text-gray-800 py-1 hover:bg-gray-50 rounded px-2 transition-colors"
+              >
+                {question}
+              </button>
+            ))}
+          </div>
+        )}
+
         <QuickActionButton
           text="국제교류"
           imageUrl="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/bc648fc9b96ab9f9f7440ae4fcdf8e9c568f2d47?placeholderIfAbsent=true"
+          onClick={handleInternationalToggle}
+          isToggled={isInternationalToggled}
         />
+        
+        {isInternationalToggled && (
+          <div className="ml-4 space-y-2 border border-gray-200 rounded-lg p-3 bg-white">
+            {internationalQuestions.map((question, index) => (
+              <button
+                key={index}
+                className="block w-full text-left text-sm text-gray-600 hover:text-gray-800 py-1 hover:bg-gray-50 rounded px-2 transition-colors"
+              >
+                {question}
+              </button>
+            ))}
+          </div>
+        )}
+
         <QuickActionButton
           text="교내문의"
           imageUrl="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/acf446829efd4b02c7ef6765b0b9c786bc1a64bb?placeholderIfAbsent=true"
+          onClick={handleCampusToggle}
+          isToggled={isCampusToggled}
         />
+        
+        {isCampusToggled && (
+          <div className="ml-4 space-y-2 border border-gray-200 rounded-lg p-3 bg-white">
+            {campusQuestions.map((question, index) => (
+              <button
+                key={index}
+                className="block w-full text-left text-sm text-gray-600 hover:text-gray-800 py-1 hover:bg-gray-50 rounded px-2 transition-colors"
+              >
+                {question}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="flex gap-3 mt-6 ml-11">
