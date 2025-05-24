@@ -8,19 +8,19 @@ interface ModeOptionProps {
 
 const ModeOption = ({ imageUrl, label }: ModeOptionProps) => {
   return (
-    <section className="flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <img
         src={imageUrl}
         alt={`${label} icon`}
-        className="object-contain aspect-square rounded-[90px] w-[122px]"
+        className="object-contain aspect-square rounded-full w-[80px] h-[80px] mb-4"
       />
       <button
-        className="px-3.5 pt-2 pb-4 mt-9 text-base font-medium leading-5 text-black bg-sky-100 rounded-lg w-[87px]"
+        className="px-4 py-2 text-sm font-medium text-black bg-sky-100 rounded-lg hover:bg-sky-200 transition-colors whitespace-nowrap"
         aria-label={label}
       >
-        <p>{label}</p>
+        {label}
       </button>
-    </section>
+    </div>
   );
 };
 
