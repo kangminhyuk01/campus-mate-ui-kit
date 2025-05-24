@@ -3,35 +3,31 @@ import React from "react";
 
 const AssistChatMessageInput = () => {
   return (
-    <div className="flex overflow-hidden flex-col justify-center self-center px-16 py-4 max-w-full bg-white w-[976px] max-md:px-5">
-      <div className="flex flex-wrap gap-5 justify-between py-0.5 pr-0.5 pl-2 rounded-3xl border-2 border-solid bg-slate-600 bg-opacity-10 border-black border-opacity-0 max-md:max-w-full">
-        <div className="flex gap-2 my-auto text-base leading-none text-gray-800">
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/94713650efb2b00fec2a444e763b1724eeeddd85?placeholderIfAbsent=true"
-            alt="Message icon"
-            className="object-contain shrink-0 w-6 aspect-square"
-          />
-          <label htmlFor="messageInput" className="sr-only">Type your message</label>
-          <input
-            id="messageInput"
-            type="text"
-            placeholder="메시지를 입력하세요..."
-            className="my-auto basis-auto bg-transparent border-none outline-none"
-          />
-        </div>
-        <div className="flex gap-2">
-          <button aria-label="Attach file">
+    <div className="w-full mb-8">
+      <div className="flex items-center gap-3 bg-gray-50 rounded-full px-4 py-3 border border-gray-200">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/94713650efb2b00fec2a444e763b1724eeeddd85?placeholderIfAbsent=true"
+          className="w-5 h-5"
+          alt="Message icon"
+        />
+        <input
+          type="text"
+          placeholder="메시지를 입력하세요..."
+          className="flex-1 bg-transparent border-none outline-none text-gray-700 placeholder-gray-400"
+        />
+        <div className="flex items-center gap-2">
+          <button className="p-1 hover:bg-gray-200 rounded-full transition-colors">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/695030f406df7986e70c34a8c1b98227897a7288?placeholderIfAbsent=true"
-              alt="Attachment"
-              className="object-contain shrink-0 my-auto w-6 aspect-square"
+              className="w-5 h-5"
+              alt="Attachment icon"
             />
           </button>
-          <button aria-label="Send message">
+          <button className="p-1 bg-sky-500 hover:bg-sky-600 rounded-full transition-colors">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/a6c2400a34b73a8b17b274c0a1eb691e50108a10?placeholderIfAbsent=true"
-              alt="Send"
-              className="object-contain shrink-0 w-8 rounded-2xl aspect-square"
+              className="w-6 h-6"
+              alt="Send icon"
             />
           </button>
         </div>

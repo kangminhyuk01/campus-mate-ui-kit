@@ -6,12 +6,14 @@ import AssistChatChatArea from "./AssistChatChatArea";
 
 const AssistCampusMate = () => {
   return (
-    <main className="overflow-hidden px-2.5 py-16 bg-white">
+    <main className="min-h-screen bg-white">
       <AssistChatHeader />
-      <section className="flex flex-wrap gap-5 justify-between mt-60 max-md:mt-10 max-md:max-w-full">
+      <div className="flex gap-8 max-w-7xl mx-auto px-4 py-8">
         <AssistChatSidePanel />
-        <AssistChatChatArea />
-      </section>
+        <div className="flex-1">
+          <AssistChatChatArea />
+        </div>
+      </div>
     </main>
   );
 };
