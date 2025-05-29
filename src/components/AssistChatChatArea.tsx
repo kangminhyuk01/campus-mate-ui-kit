@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AssistChatQuickActionButton from "./AssistChatQuickActionButton";
@@ -64,14 +63,14 @@ const AssistChatChatArea = () => {
         
         {isExampleToggled && (
           <div className="ml-4 space-y-2 border border-gray-200 rounded-lg p-3 bg-white">
-            {exampleQuestions.map((question, index) => (
-              <button
-                key={index}
-                className="block w-full text-left text-sm text-gray-600 hover:text-gray-800 py-1 hover:bg-gray-50 rounded px-2 transition-colors"
-              >
-                {question}
-              </button>
-            ))}
+            <div className="text-sm py-2 px-2 font-medium text-gray-800">
+              Q. 등록금 납부 방법이 궁금해요.
+            </div>
+            <div className="text-sm py-2 px-2 text-gray-600">
+              A. 포털 &gt;학생서비스 &gt;등록정보&gt; 등록금고지서조회에서 조회 및 출력<br />
+              <span className="font-bold">계좌이체</span>: 고지서상에 기재된 우리은행 가상계좌로 이체하여 납부<br />
+              <span className="font-bold">수납은행 창구 납부</span>: 고지서를 이용하여 창구에서 납부
+            </div>
           </div>
         )}
       </div>
