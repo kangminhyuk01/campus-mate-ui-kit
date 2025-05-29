@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -42,7 +43,7 @@ const ChatArea = () => {
 
   const exampleQuestions = [
     "Q. 신입생은 언제 휴학신청이 가능해?",
-    "A. 신입생은 입학 후 1년간 각 사유허가 불가능해. 재입학은 2학기 지난 뒤부터 가능하고, 1학기 지난 뒤 불가능해."
+    "A. 신입생은 입학 후 1년간 가사휴학이 불가능해. 재입학은 2학기 자퇴 할때만 가능하고, 1학기 자퇴 시 불가능해. "
   ];
 
   return (
