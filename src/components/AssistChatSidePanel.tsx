@@ -15,7 +15,7 @@ const AssistChatSidePanel = () => {
           Settings
         </a>
         <a href="#" className="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
-          Help
+          FAQ
         </a>
       </div>
     </nav>
