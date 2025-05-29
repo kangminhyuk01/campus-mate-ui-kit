@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -42,13 +41,8 @@ const ChatArea = () => {
   };
 
   const exampleQuestions = [
-    "1전공 졸업요건이 궁금합니다",
-    "휴학하려면 맞찾시 들어야하는요?",
-    "계절학기는 언제 신청하나요?",
-    "신입생은 언제 휴학신청이 가능한가요?",
-    "전부 졸업학년입니다",
-    "예비군은 어떻게 신청하나요?",
-    "휴학하고 싶은데 등록금 환불은 어떻게 되나요?"
+    "Q. 신입생은 언제 휴학신청이 가능해?",
+    "A. 신입생은 입학 후 1년간 각 사유허가 불가능해. 재입학은 2학기 지난 뒤부터 가능하고, 1학기 지난 뒤 불가능해."
   ];
 
   return (
@@ -91,12 +85,12 @@ const ChatArea = () => {
         {isExampleToggled && (
           <div className="ml-4 space-y-2 border border-gray-200 rounded-lg p-3 bg-white">
             {exampleQuestions.map((question, index) => (
-              <button
+              <div
                 key={index}
-                className="block w-full text-left text-sm text-gray-600 hover:text-gray-800 py-1 hover:bg-gray-50 rounded px-2 transition-colors"
+                className={`text-sm py-2 px-2 ${index === 0 ? 'font-medium text-gray-800' : 'text-gray-600'}`}
               >
                 {question}
-              </button>
+              </div>
             ))}
           </div>
         )}
