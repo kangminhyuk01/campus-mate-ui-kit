@@ -1,9 +1,21 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import FriendlyChatHeader from './FriendlyChatHeader';
+import FriendlyChatFooter from './FriendlyChatFooter';
 import FAQItem from './FAQItem';
 
 const FAQ = () => {
+  const navigate = useNavigate();
+
+  const handleCasualMode = () => {
+    navigate('/friendlychat');
+  };
+
+  const handlePoliteMode = () => {
+    navigate('/assistchat');
+  };
+
   const faqQuestions = [
     "Q. 경영정보학과 졸업요건(졸업인증제 충족)이 궁금해요.",
     "Q. 경영정보학과의 수업은 어떻게 진행되나요?",
@@ -23,10 +35,10 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       <FriendlyChatHeader />
       
-      <div className="flex">
+      <div className="flex flex-1">
         {/* Left Sidebar */}
         <aside className="w-48 p-6">
           <nav className="space-y-2">
@@ -43,6 +55,38 @@ const FAQ = () => {
               </div>
             ))}
           </nav>
+
+          {/* Mode Toggle Buttons */}
+          <div className="flex flex-col mt-11 w-full text-base font-bold text-sky-500 whitespace-nowrap">
+            <button
+              onClick={handleCasualMode}
+              className="flex gap-2 self-start hover:opacity-70 transition-opacity"
+            >
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/07047f994a8e2b4d38f39bce615c29867f90818e?placeholderIfAbsent=true"
+                alt="Casual mode"
+                className="object-contain shrink-0 aspect-square rounded-[90px] w-[45px]"
+              />
+              <span className="my-auto">
+                반말모드하기
+                <br />
+              </span>
+            </button>
+            <button
+              onClick={handlePoliteMode}
+              className="flex gap-2 items-center mt-8 hover:opacity-70 transition-opacity"
+            >
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/024bceaf7582109df0da190c5156502c8db9e40b?placeholderIfAbsent=true"
+                alt="Polite mode"
+                className="object-contain shrink-0 self-stretch my-auto aspect-square rounded-[90px] w-[45px]"
+              />
+              <span className="my-auto w-[107px]">
+                존댓말모드하기
+                <br />
+              </span>
+            </button>
+          </div>
         </aside>
 
         {/* Main Content */}
@@ -83,6 +127,8 @@ const FAQ = () => {
           </div>
         </main>
       </div>
+
+      <FriendlyChatFooter />
     </div>
   );
 };
