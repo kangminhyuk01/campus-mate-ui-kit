@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FriendlyChatFooter from './FriendlyChatFooter';
@@ -31,7 +30,7 @@ const FAQ = () => {
   const faqData = [
     {
       question: "Q. 경영정보학과 졸업요건(졸업인증제 충족)이 궁금해요.",
-      answer: "A. 제1전공의 심화전공 이수(전공선택 최저이수학점년 18학점 이상 초과 이수)\n-다전공 이수\n-부전공 이수\n이 중 택 1 이수가 공통요건입니다."
+      answer: "A. -제 1전공의 심화전공 이수(전공선택 최저이수학점보다 18학점 이상 초과 이수)\n-다전공 이수\n-부전공 이수\n이 중 택 1 이수가 공통요건입니다."
     },
     {
       question: "Q. 경영정보학과의 수업은 어떻게 진행되나요?",
@@ -90,7 +89,7 @@ const FAQ = () => {
               >
                 Log out
               </button>
-              <button className="px-4 py-2 text-black bg-sky-100 rounded-lg border border-black border-solid hover:bg-sky-200 transition-colors">
+              <button className="px-4 py-2 text-white bg-sky-500 rounded-lg hover:bg-sky-600 transition-colors">
                 Try it free
               </button>
             </div>
