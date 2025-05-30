@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import FriendlyChatFooter from './FriendlyChatFooter';
+import Home2Footer from './Home2Footer';
 import {
   Accordion,
   AccordionContent,
@@ -177,7 +177,7 @@ const FAQ = () => {
         </div>
       </div>
 
-      <FriendlyChatFooter />
+      <Home2Footer />
     </div>
   );
 };

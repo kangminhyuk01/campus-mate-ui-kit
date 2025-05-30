@@ -4,7 +4,7 @@ import FriendlyChatHeader from "./FriendlyChatHeader";
 import SidePanel from "./SidePanel";
 import ChatArea from "./ChatArea";
 import MessageInput from "./MessageInput";
-import FriendlyChatFooter from "./FriendlyChatFooter";
+import Home2Footer from "./Home2Footer";
 
 const CampusMate = () => {
   return (
@@ -27,7 +27,7 @@ const CampusMate = () => {
         </div>
       </div>
       
-      <FriendlyChatFooter />
+      <Home2Footer />
     </div>
   );
 };

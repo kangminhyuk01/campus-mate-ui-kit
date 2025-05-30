@@ -4,7 +4,7 @@ import AssistChatHeader from "./AssistChatHeader";
 import AssistChatSidePanel from "./AssistChatSidePanel";
 import AssistChatChatArea from "./AssistChatChatArea";
 import AssistChatMessageInput from "./AssistChatMessageInput";
-import AssistChatFooter from "./AssistChatFooter";
+import Home2Footer from "./Home2Footer";
 
 const AssistCampusMate = () => {
   return (
@@ -27,7 +27,7 @@ const AssistCampusMate = () => {
         </div>
       </div>
       
-      <AssistChatFooter />
+      <Home2Footer />
     </div>
   );
 };
