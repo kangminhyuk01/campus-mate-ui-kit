@@ -5,20 +5,20 @@ import { Link, useNavigate } from "react-router-dom";
 import PasswordResetPopup from "./PasswordResetPopup";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
+  const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Check if both email and password are not empty
-    if (email.trim() !== "" && password.trim() !== "") {
-      console.log("Login attempt:", { email, password });
+    // Check if both id and password are not empty
+    if (id.trim() !== "" && password.trim() !== "") {
+      console.log("Login attempt:", { id, password });
       // Redirect to Home2 page
       navigate("/home2");
     } else {
-      console.log("Login failed: Email or password is empty");
+      console.log("Login failed: ID or password is empty");
     }
   };
 
@@ -31,16 +31,16 @@ const LoginForm = () => {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-            이메일
+          <label htmlFor="id" className="block text-sm font-medium text-gray-700 mb-2">
+            ID
           </label>
           <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            id="id"
+            type="text"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
-            placeholder="이메일을 입력하세요"
+            placeholder="ID를 입력하세요"
             required
           />
         </div>
