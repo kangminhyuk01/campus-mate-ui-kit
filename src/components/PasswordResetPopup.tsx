@@ -54,11 +54,14 @@ const PasswordResetPopup = ({ children }: PasswordResetPopupProps) => {
           </h1>
 
           <form onSubmit={handleSubmit} className="w-full flex flex-col items-center">
-            <div className="mt-12 ml-16 max-w-full tracking-normal whitespace-nowrap bg-white rounded-lg border-2 border-solid border-zinc-400 w-[400px] max-md:mt-10">
-              <div className="px-3 py-2 -ml-0.5 bg-white rounded-lg border-2 border-solid border-zinc-400 max-md:pr-5">
-                ID
-              </div>
-            </div>
+            <input
+              type="text"
+              name="id"
+              placeholder="ID"
+              value={formData.id}
+              onChange={handleChange}
+              className="py-2 pr-3 pl-3.5 mt-12 ml-16 max-w-full tracking-normal whitespace-nowrap bg-white rounded-lg border-2 border-solid border-zinc-400 w-[400px] max-md:pr-5 max-md:mt-10 placeholder:text-gray-500"
+            />
 
             <input
               type="password"
