@@ -1,15 +1,27 @@
 
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 const MessageInput = () => {
+  const handleIconClick = () => {
+    console.log("Message icon clicked");
+  };
+
   return (
     <div className="max-w-4xl mx-auto">
       <div className="flex items-center gap-3 bg-gray-50 rounded-full px-4 py-3 border border-gray-200">
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/94713650efb2b00fec2a444e763b1724eeeddd85?placeholderIfAbsent=true"
-          className="w-5 h-5"
-          alt="Message icon"
-        />
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={handleIconClick}
+          className="w-5 h-5 p-0 hover:bg-gray-200"
+        >
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/94713650efb2b00fec2a444e763b1724eeeddd85?placeholderIfAbsent=true"
+            className="w-5 h-5"
+            alt="Message icon"
+          />
+        </Button>
         <input
           type="text"
           placeholder="Type your message..."
