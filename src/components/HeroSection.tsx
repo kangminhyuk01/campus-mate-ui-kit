@@ -27,7 +27,7 @@ const HeroSection = () => {
                     Campus mate AI 출시 !
                   </p>
                   <div className="shrink-0 mt-1 h-0.5 border-2 border-sky-500 border-solid w-[110px]" />
-                  <p className="self-stretch mt-10 text-2xl leading-6 text-black">
+                  <p className="self-stretch mt-10 text-xl leading-6 text-black">
                     단순 FAQ 응대가 아닌, <br />
                     여러분들의 대학생활을 책임지는 똑똑한 상담사!
                   </p>
