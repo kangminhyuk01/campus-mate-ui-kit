@@ -28,12 +28,6 @@ const SignUpForm = () => {
   return (
     <div className="w-full max-w-md mx-auto bg-white rounded-lg shadow-md p-8">
       <div className="text-center mb-8">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-sky-500 rounded-full flex items-center justify-center">
-            <span className="text-white font-bold text-lg">C</span>
-          </div>
-          <h1 className="text-2xl font-bold text-sky-600">Campus Mate</h1>
-        </div>
         <h2 className="text-3xl font-bold text-gray-900 mb-2">회원가입</h2>
       </div>
 
