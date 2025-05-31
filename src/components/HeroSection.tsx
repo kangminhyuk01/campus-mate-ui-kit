@@ -32,9 +32,9 @@ const HeroSection = () => {
                     여러분들의 대학생활을 책임지는 똑똑한 상담사!
                   </p>
                   <Link to="/login">
-                    <Button className="px-8 py-3 mt-8 whitespace-nowrap bg-blue-100 text-neutral-800 hover:bg-blue-200 transition-colors">
+                    <button className="px-8 py-3 mt-8 whitespace-nowrap bg-blue-100 text-neutral-800 hover:bg-blue-200 transition-colors">
                       시작하기
-                    </Button>
+                    </button>
                   </Link>
                 </div>
               </div>
