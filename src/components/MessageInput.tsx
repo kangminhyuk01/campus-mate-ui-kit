@@ -1,49 +1,56 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Send } from "lucide-react";
 
-const MessageInput = () => {
-  const handleIconClick = () => {
-    console.log("Message icon clicked");
+interface MessageInputProps {
+  onSendMessage: (message: string) => void;
+  isLoading: boolean;
+}
+
+const MessageInput = ({ onSendMessage, isLoading }: MessageInputProps) => {
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (message.trim() && !isLoading) {
+      onSendMessage(message.trim());
+      setMessage("");
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit(e);
+    }
   };
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="flex items-center gap-3 bg-gray-50 rounded-full px-4 py-3 border border-gray-200">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={handleIconClick}
-          className="w-5 h-5 p-0 hover:bg-gray-200"
-        >
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/94713650efb2b00fec2a444e763b1724eeeddd85?placeholderIfAbsent=true"
-            className="w-5 h-5"
-            alt="Message icon"
+      <form onSubmit={handleSubmit}>
+        <div className="flex items-center gap-3 bg-gray-50 rounded-full px-4 py-3 border border-gray-200">
+          <input
+            type="text"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="Type your message..."
+            className="flex-1 bg-transparent border-none outline-none text-gray-700 placeholder-gray-400"
+            disabled={isLoading}
           />
-        </Button>
-        <input
-          type="text"
-          placeholder="Type your message..."
-          className="flex-1 bg-transparent border-none outline-none text-gray-700 placeholder-gray-400"
-        />
-        <div className="flex items-center gap-2">
-          <button className="p-1 hover:bg-gray-200 rounded-full transition-colors">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/695030f406df7986e70c34a8c1b98227897a7288?placeholderIfAbsent=true"
-              className="w-5 h-5"
-              alt="Attachment icon"
-            />
-          </button>
-          <button className="p-1 bg-sky-500 hover:bg-sky-600 rounded-full transition-colors">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/91d2a382ed5e6c3045c5a0f3d2382f45da888c52?placeholderIfAbsent=true"
-              className="w-6 h-6"
-              alt="Send icon"
-            />
-          </button>
+          <div className="flex items-center gap-2">
+            <Button
+              type="submit"
+              disabled={!message.trim() || isLoading}
+              className="p-2 bg-sky-500 hover:bg-sky-600 rounded-full transition-colors"
+              size="icon"
+            >
+              <Send className="w-4 h-4 text-white" />
+            </Button>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

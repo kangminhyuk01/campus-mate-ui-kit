@@ -5,8 +5,11 @@ import SidePanel from "./SidePanel";
 import ChatArea from "./ChatArea";
 import MessageInput from "./MessageInput";
 import Home2Footer from "./Home2Footer";
+import { useChat } from "../hooks/useChat";
 
 const CampusMate = () => {
+  const { messages, isLoading, sendMessage } = useChat();
+
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <FriendlyChatHeader />
@@ -16,12 +19,19 @@ const CampusMate = () => {
         
         <div className="flex-1 ml-6 bg-white rounded-lg shadow-sm">
           <div className="flex flex-col h-full">
-            <div className="flex-1 p-6">
-              <ChatArea />
+            <div className="flex-1 p-6 overflow-hidden">
+              <ChatArea 
+                onSendMessage={sendMessage}
+                messages={messages}
+                isLoading={isLoading}
+              />
             </div>
             
             <div className="border-t border-gray-200 p-4">
-              <MessageInput />
+              <MessageInput 
+                onSendMessage={sendMessage}
+                isLoading={isLoading}
+              />
             </div>
           </div>
         </div>
