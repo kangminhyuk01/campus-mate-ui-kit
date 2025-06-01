@@ -6,7 +6,7 @@ import ChatbotMockup from "./ChatbotMockup";
 
 const HeroSection = () => {
   return (
-    <div className="flex flex-col items-center px-4 md:px-20 w-full bg-white">
+    <div className="flex flex-col items-center px-4 md:px-20 w-full bg-white py-6">
       <div className="flex flex-col mb-0 w-full max-w-[1159px]">
         <div className="w-full">
           <div className="flex gap-5 flex-col md:flex-row">

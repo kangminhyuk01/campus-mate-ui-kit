@@ -8,7 +8,7 @@ const Home2Hero = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
-    <section className="flex flex-col items-center px-20 w-full bg-white max-md:px-5 max-md:max-w-full">
+    <section className="flex flex-col items-center px-20 w-full bg-white py-6 max-md:px-5 max-md:max-w-full">
       <div className="flex z-10 flex-col mb-0 ml-3 w-full max-w-[1159px] max-md:mb-2.5 max-md:max-w-full">
         <div className="max-md:max-w-full">
           <div className="flex gap-5 max-md:flex-col">
