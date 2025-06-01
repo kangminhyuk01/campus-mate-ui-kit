@@ -28,14 +28,6 @@ const ChatMessage = ({ message, userAvatar, botAvatar }: ChatMessageProps) => {
       }`}>
         <p className="text-sm whitespace-pre-wrap">{message.content}</p>
       </div>
-      
-      {isUser && (
-        <img
-          src={userAvatar || "https://cdn.builder.io/api/v1/image/assets/e54d2759bda84710a4d50e71ff6939bd/3b47a0ba58247d8088d4291c0dcce55f7db8e4d7?placeholderIfAbsent=true"}
-          className="w-8 h-8 rounded-full flex-shrink-0"
-          alt="User avatar"
-        />
-      )}
     </div>
   );
 };
