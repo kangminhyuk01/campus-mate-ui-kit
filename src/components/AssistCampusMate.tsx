@@ -22,43 +22,47 @@ const AssistCampusMate = () => {
         </div>
       </div>
       
-      <div className="flex flex-1 max-w-7xl mx-auto w-full px-4 py-6">
-        <AssistChatSidePanel />
-        
-        <div className="flex-1 ml-6 bg-white rounded-lg shadow-sm">
-          <div className="flex flex-col h-full">
-            <div className="flex-1 p-6 overflow-hidden">
-              <AssistChatChatArea 
-                onSendMessage={sendMessage}
-                messages={messages}
-                isLoading={isLoading}
-              />
-            </div>
-            
-            <div className="border-t border-gray-200 p-4">
-              <AssistChatMessageInput 
-                onSendMessage={sendMessage}
-                isLoading={isLoading}
-              />
-            </div>
-            
-            {/* Reset button */}
-            <div className="border-t border-gray-200 p-4">
-              <div className="flex justify-center">
-                <Button
-                  onClick={clearMessages}
-                  variant="outline"
-                  className="text-gray-600 hover:text-gray-800"
-                >
-                  채팅 초기화
-                </Button>
+      <div className="flex flex-1 justify-center px-4 py-6">
+        <div className="flex w-full max-w-7xl">
+          <div className="mr-6">
+            <AssistChatSidePanel />
+          </div>
+          
+          <div className="flex-1 max-w-4xl bg-white rounded-lg shadow-sm">
+            <div className="flex flex-col h-full">
+              <div className="flex-1 p-6 overflow-hidden">
+                <AssistChatChatArea 
+                  onSendMessage={sendMessage}
+                  messages={messages}
+                  isLoading={isLoading}
+                />
               </div>
-            </div>
-            
-            {/* API Policy Notice */}
-            <div className="p-4">
-              <div className="flex justify-center">
-                <p className="text-sm text-gray-500 text-center">API 정책상, 1분에 한 번씩 질문 해주시길 바랍니다.</p>
+              
+              <div className="border-t border-gray-200 p-4">
+                <AssistChatMessageInput 
+                  onSendMessage={sendMessage}
+                  isLoading={isLoading}
+                />
+              </div>
+              
+              {/* Reset button */}
+              <div className="border-t border-gray-200 p-4">
+                <div className="flex justify-center">
+                  <Button
+                    onClick={clearMessages}
+                    variant="outline"
+                    className="text-gray-600 hover:text-gray-800"
+                  >
+                    채팅 초기화
+                  </Button>
+                </div>
+              </div>
+              
+              {/* API Policy Notice */}
+              <div className="p-4">
+                <div className="flex justify-center">
+                  <p className="text-sm text-gray-500 text-center">API 정책상, 1분에 한 번씩 질문 해주시길 바랍니다.</p>
+                </div>
               </div>
             </div>
           </div>
