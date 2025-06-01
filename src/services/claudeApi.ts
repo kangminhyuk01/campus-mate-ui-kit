@@ -6,60 +6,38 @@ export interface Message {
   timestamp: Date;
 }
 
-export interface ClaudeRequest {
-  modelId: string;
-  contentType: string;
-  accept: string;
-  body: {
-    anthropic_version: string;
-    max_tokens: number;
-    messages: Array<{
-      role: string;
-      content: Array<{
-        type: string;
-        text: string;
-      }>;
-    }>;
-  };
+export interface FastAPIRequest {
+  message: string;
+  conversation_history: Array<{
+    role: string;
+    content: string;
+  }>;
+}
+
+export interface FastAPIResponse {
+  response: string;
+  status: string;
 }
 
 export const sendMessageToClaude = async (message: string, conversationHistory: Message[] = []): Promise<string> => {
   try {
-    // Convert conversation history to Claude format
-    const claudeMessages = conversationHistory
+    // 대화 히스토리를 FastAPI 형식으로 변환
+    const history = conversationHistory
       .filter(msg => msg.role === 'user' || msg.role === 'assistant')
       .map(msg => ({
         role: msg.role,
-        content: [{
-          type: "text",
-          text: msg.content
-        }]
+        content: msg.content
       }));
 
-    // Add the new user message
-    claudeMessages.push({
-      role: "user",
-      content: [{
-        type: "text",
-        text: message
-      }]
-    });
-
-    const requestBody: ClaudeRequest = {
-      modelId: "anthropic.claude-3-5-sonnet-20240620-v1:0",
-      contentType: "application/json",
-      accept: "application/json",
-      body: {
-        anthropic_version: "bedrock-2023-05-31",
-        max_tokens: 1000,
-        messages: claudeMessages
-      }
+    const requestBody: FastAPIRequest = {
+      message: message,
+      conversation_history: history
     };
 
-    console.log('Sending request to Claude API:', requestBody);
+    console.log('Sending request to FastAPI backend:', requestBody);
 
-    // TODO: Replace with your actual API endpoint
-    const response = await fetch('/api/claude', {
+    // FastAPI 백엔드로 요청 (EC2 인스턴스 주소로 변경 필요)
+    const response = await fetch('http://localhost:8000/api/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -68,15 +46,15 @@ export const sendMessageToClaude = async (message: string, conversationHistory: 
     });
 
     if (!response.ok) {
-      throw new Error(`API request failed: ${response.status}`);
+      const errorData = await response.json();
+      throw new Error(`API request failed: ${response.status} - ${errorData.detail || 'Unknown error'}`);
     }
 
-    const data = await response.json();
+    const data: FastAPIResponse = await response.json();
     
-    // Extract the response text from Claude's response format
-    return data.content?.[0]?.text || "죄송합니다. 응답을 처리할 수 없습니다.";
+    return data.response || "죄송합니다. 응답을 처리할 수 없습니다.";
   } catch (error) {
-    console.error('Claude API Error:', error);
+    console.error('FastAPI Backend Error:', error);
     return "죄송합니다. 현재 서비스에 문제가 있습니다. 잠시 후 다시 시도해주세요.";
   }
 };
