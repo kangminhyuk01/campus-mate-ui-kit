@@ -117,41 +117,6 @@ const LoginForm = () => {
     }
   };
 
-  /*
-  📋 EC2 인스턴스에서 백엔드 연결 설정 방법:
-
-  1. EC2 인스턴스 FastAPI 백엔드 설정:
-     - main.py에 로그인 엔드포인트 추가: @app.post("/api/auth/login")
-     - 사용자 인증 로직 구현 (데이터베이스 연동 또는 간단한 하드코딩)
-     - JWT 토큰 생성 및 반환 로직 추가
-
-  2. EC2 보안 그룹 설정:
-     - 인바운드 규칙에서 포트 8000 추가 (소스: 0.0.0.0/0 또는 특정 IP)
-     - HTTP (80), HTTPS (443) 포트도 필요시 추가
-
-  3. 프론트엔드 연결 설정:
-     - 위의 API_URL에서 localhost:8000을 EC2 퍼블릭 IP로 변경
-     - 예시: 'http://123.456.789.012:8000/api/auth/login'
-     - 도메인이 있다면: 'https://yourdomain.com/api/auth/login'
-
-  4. CORS 설정 확인:
-     - FastAPI main.py에서 CORS 미들웨어가 프론트엔드 도메인을 허용하는지 확인
-     - allow_origins에 프론트엔드 URL 추가
-
-  5. 백엔드 API 응답 형식 예시:
-     {
-       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
-       "token_type": "bearer",
-       "user_id": "user123",
-       "username": "사용자이름"
-     }
-
-  6. 환경별 URL 설정 (권장):
-     - 개발: http://localhost:8000
-     - 스테이징: http://your-ec2-ip:8000  
-     - 프로덕션: https://your-domain.com
-  */
-
   return (
     <div className="w-full max-w-md mx-auto bg-white rounded-lg shadow-md p-8">
       <div className="text-center mb-8">
@@ -228,6 +193,41 @@ const LoginForm = () => {
           </Link>
         </p>
       </div>
+
+      {/* 
+      📋 EC2 인스턴스에서 백엔드 연결 설정 방법:
+
+      1. EC2 인스턴스 FastAPI 백엔드 설정:
+         - main.py에 로그인 엔드포인트 추가: @app.post("/api/auth/login")
+         - 사용자 인증 로직 구현 (데이터베이스 연동 또는 간단한 하드코딩)
+         - JWT 토큰 생성 및 반환 로직 추가
+
+      2. EC2 보안 그룹 설정:
+         - 인바운드 규칙에서 포트 8000 추가 (소스: 0.0.0.0/0 또는 특정 IP)
+         - HTTP (80), HTTPS (443) 포트도 필요시 추가
+
+      3. 프론트엔드 연결 설정:
+         - 위의 API_URL에서 localhost:8000을 EC2 퍼블릭 IP로 변경
+         - 예시: 'http://123.456.789.012:8000/api/auth/login'
+         - 도메인이 있다면: 'https://yourdomain.com/api/auth/login'
+
+      4. CORS 설정 확인:
+         - FastAPI main.py에서 CORS 미들웨어가 프론트엔드 도메인을 허용하는지 확인
+         - allow_origins에 프론트엔드 URL 추가
+
+      5. 백엔드 API 응답 형식 예시:
+         {
+           "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
+           "token_type": "bearer",
+           "user_id": "user123",
+           "username": "사용자이름"
+         }
+
+      6. 환경별 URL 설정 (권장):
+         - 개발: http://localhost:8000
+         - 스테이징: http://your-ec2-ip:8000  
+         - 프로덕션: https://your-domain.com
+      */}
     </div>
   );
 };
