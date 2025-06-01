@@ -16,7 +16,7 @@ const CampusMate = () => {
       <FriendlyChatHeader />
       
       {/* Disclaimer */}
-      <div className="w-full bg-yellow-50 border-b border-yellow-200 py-2">
+      <div className="w-full border-b border-gray-200 py-2">
         <div className="max-w-7xl mx-auto px-4">
           <p className="text-sm text-gray-600 text-center">챗봇은 잘못된 응답을 할 수 있습니다.</p>
         </div>
@@ -52,6 +52,13 @@ const CampusMate = () => {
                 >
                   채팅 초기화
                 </Button>
+              </div>
+            </div>
+            
+            {/* API Policy Notice */}
+            <div className="p-4">
+              <div className="flex justify-center">
+                <p className="text-sm text-gray-500 text-center">API 정책상, 1분에 한 번씩 질문 해주시길 바랍니다.</p>
               </div>
             </div>
           </div>
