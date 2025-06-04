@@ -18,7 +18,7 @@ const LoginForm = () => {
     // 예시: 'http://your-ec2-public-ip:8000/api/auth/login'
     // 또는 도메인이 있다면: 'https://your-domain.com/api/auth/login'
     // EC2 보안 그룹에서 포트 8000이 열려있는지 확인 필요
-    const API_URL = 'http://localhost:8000/api/auth/login';
+    const API_URL = 'http://localhost:8000/api/login';
     
     console.log('로그인 API 요청 시작:', API_URL);
     
@@ -198,7 +198,7 @@ const LoginForm = () => {
       📋 EC2 인스턴스에서 백엔드 연결 설정 방법:
 
       1. EC2 인스턴스 FastAPI 백엔드 설정:
-         - main.py에 로그인 엔드포인트 추가: @app.post("/api/auth/login")
+         - main.py에 로그인 엔드포인트 추가: @app.post("/api/login")
          - 사용자 인증 로직 구현 (데이터베이스 연동 또는 간단한 하드코딩)
          - JWT 토큰 생성 및 반환 로직 추가
 
